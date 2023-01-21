@@ -19,7 +19,7 @@ public final class FamiliaBuilder {
 
         final var pai = umaPessoa().build();
         final var mae = umaPessoa().nome("Maria").idade(39).renda(BigDecimal.ZERO).build();
-        final var dependente = umaPessoa().nome("Pedro").idade(10).build();
+        final var dependente = umaPessoa().nome("Pedro").idade(10).renda(BigDecimal.ZERO).build();
 
         builder.request = Familia.builder();
         builder.request

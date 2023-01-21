@@ -6,6 +6,7 @@ import br.com.digix.desafiotecnico.casapopular.usecases.providers.FamiliaProvide
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,6 +19,12 @@ public class ProcessarPontosInteractor implements ProcessarPontosInputPort {
     public List<PontuacaoModel> execute() {
         final var familias = this.familiaProvider.getAll();
 
-        return null;
+        final List<PontuacaoModel> pontuacoes = new ArrayList<>(familias.size());
+
+        familias.forEach(familia -> {
+
+        });
+
+        return pontuacoes;
     }
 }
