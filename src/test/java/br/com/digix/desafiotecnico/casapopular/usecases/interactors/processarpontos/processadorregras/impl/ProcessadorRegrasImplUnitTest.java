@@ -1,6 +1,6 @@
-package br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.validacaopontuacao.impl;
+package br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.processadorregras.impl;
 
-import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.validacaopontuacao.regras.Regra;
+import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.processadorregras.regras.Regra;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;

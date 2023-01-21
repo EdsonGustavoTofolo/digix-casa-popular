@@ -1,4 +1,4 @@
-package br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.validacaopontuacao.regras;
+package br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.processadorregras.regras;
 
 import br.com.digix.desafiotecnico.casapopular.domain.entities.Familia;
 import org.springframework.stereotype.Service;

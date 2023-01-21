@@ -1,4 +1,4 @@
-package br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.validacaopontuacao;
+package br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.processadorregras;
 
 import br.com.digix.desafiotecnico.casapopular.domain.entities.Familia;
 import br.com.digix.desafiotecnico.casapopular.domain.entities.Pontuacao;

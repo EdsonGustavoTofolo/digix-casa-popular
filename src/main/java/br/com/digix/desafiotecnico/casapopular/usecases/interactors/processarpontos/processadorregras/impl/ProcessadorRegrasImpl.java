@@ -1,9 +1,9 @@
-package br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.validacaopontuacao.impl;
+package br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.processadorregras.impl;
 
 import br.com.digix.desafiotecnico.casapopular.domain.entities.Familia;
 import br.com.digix.desafiotecnico.casapopular.domain.entities.Pontuacao;
-import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.validacaopontuacao.ProcessadorRegras;
-import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.validacaopontuacao.regras.Regra;
+import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.processadorregras.ProcessadorRegras;
+import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.processadorregras.regras.Regra;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

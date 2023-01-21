@@ -1,7 +1,7 @@
 package br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos;
 
 import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.converters.PontuacaoConverter;
-import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.validacaopontuacao.ProcessadorRegras;
+import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.processadorregras.ProcessadorRegras;
 import br.com.digix.desafiotecnico.casapopular.usecases.ports.processarpontos.ProcessarPontosInputPort;
 import br.com.digix.desafiotecnico.casapopular.usecases.ports.processarpontos.dtos.PontuacaoModel;
 import br.com.digix.desafiotecnico.casapopular.usecases.providers.FamiliaProvider;
