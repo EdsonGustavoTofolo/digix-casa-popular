@@ -1,0 +1,21 @@
+package br.com.digix.desafiotecnico.casapopular.usecases.ports.adicionarfamilia.dtos;
+
+import lombok.Builder;
+import lombok.Data;
+import lombok.Value;
+
+import java.util.List;
+import java.util.Optional;
+
+@Data
+@Builder
+@Value
+public class FamiliaModel {
+    PessoaModel pai;
+    PessoaModel mae;
+    List<PessoaModel> dependentes;
+
+    public Optional<PessoaModel> getPai() {
+        return Optional.ofNullable(this.pai);
+    }
+}
