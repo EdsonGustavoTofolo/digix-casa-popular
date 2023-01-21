@@ -1,6 +1,6 @@
-package br.com.digix.desafiotecnico.casapopular.usecases.interactors;
+package br.com.digix.desafiotecnico.casapopular.usecases.interactors.adicionarfamilia;
 
-import br.com.digix.desafiotecnico.casapopular.usecases.interactors.converters.FamiliaConverter;
+import br.com.digix.desafiotecnico.casapopular.usecases.interactors.adicionarfamilia.converters.FamiliaConverter;
 import br.com.digix.desafiotecnico.casapopular.usecases.ports.adicionarfamilia.AdicionarFamiliaInputPort;
 import br.com.digix.desafiotecnico.casapopular.usecases.ports.adicionarfamilia.dtos.FamiliaModel;
 import br.com.digix.desafiotecnico.casapopular.usecases.providers.FamiliaProvider;

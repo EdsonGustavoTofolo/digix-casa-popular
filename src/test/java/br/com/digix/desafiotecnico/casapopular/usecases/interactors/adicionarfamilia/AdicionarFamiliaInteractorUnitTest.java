@@ -1,4 +1,4 @@
-package br.com.digix.desafiotecnico.casapopular.usecases.interactors;
+package br.com.digix.desafiotecnico.casapopular.usecases.interactors.adicionarfamilia;
 
 import br.com.digix.desafiotecnico.casapopular.domain.entities.Familia;
 import br.com.digix.desafiotecnico.casapopular.domain.entities.Pessoa;
@@ -53,7 +53,7 @@ class AdicionarFamiliaInteractorUnitTest {
             this.assertPessoa(familia.getDependentes().get(i), familiaModel.getDependentes().get(i));
         }
 
-        this.assertPessoa(familia.getPai(), familiaModel.getPai().get());
+        this.assertPessoa(familia.getPai().get(), familiaModel.getPai().get());
         this.assertPessoa(familia.getMae(), familiaModel.getMae());
     }
 

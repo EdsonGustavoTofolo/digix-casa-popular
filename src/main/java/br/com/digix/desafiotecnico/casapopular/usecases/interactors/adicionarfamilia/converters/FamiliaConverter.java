@@ -1,4 +1,4 @@
-package br.com.digix.desafiotecnico.casapopular.usecases.interactors.converters;
+package br.com.digix.desafiotecnico.casapopular.usecases.interactors.adicionarfamilia.converters;
 
 import br.com.digix.desafiotecnico.casapopular.domain.entities.Familia;
 import br.com.digix.desafiotecnico.casapopular.domain.entities.Pessoa;
