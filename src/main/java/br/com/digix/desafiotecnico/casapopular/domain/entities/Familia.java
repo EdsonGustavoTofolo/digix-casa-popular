@@ -22,4 +22,8 @@ public class Familia {
 
         return rendaPai.add(rendaMae).add(rendaTotalDependentes);
     }
+
+    public long getQuantidadeDeDependentesMenoresDe18anos() {
+        return this.dependentes.stream().filter(pessoa -> pessoa.getIdade() < 18).count();
+    }
 }

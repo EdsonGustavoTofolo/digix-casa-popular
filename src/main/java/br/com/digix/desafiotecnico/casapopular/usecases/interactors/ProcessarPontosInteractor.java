@@ -6,6 +6,7 @@ import br.com.digix.desafiotecnico.casapopular.usecases.providers.FamiliaProvide
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,26 @@ public class ProcessarPontosInteractor implements ProcessarPontosInputPort {
         final List<PontuacaoModel> pontuacoes = new ArrayList<>(familias.size());
 
         familias.forEach(familia -> {
+            int pontos = 0;
 
+            if (familia.getRendaTotal().compareTo(new BigDecimal("900.00")) < 0) {
+                pontos += 5;
+            } else if (familia.getRendaTotal().compareTo(new BigDecimal("1500.00")) < 0) {
+                pontos += 3;
+            }
+            long quantidadeDeDependentesMenoresDe18anos = familia.getQuantidadeDeDependentesMenoresDe18anos();
+            if (quantidadeDeDependentesMenoresDe18anos > 0 && quantidadeDeDependentesMenoresDe18anos < 3) {
+                pontos += 2;
+            } else if (quantidadeDeDependentesMenoresDe18anos >= 3) {
+                pontos += 3;
+            }
+
+            final var pontuacao = PontuacaoModel.builder()
+                    .pontos(pontos)
+                    .familia(null)
+                    .build();
+
+            pontuacoes.add(pontuacao);
         });
 
         return pontuacoes;

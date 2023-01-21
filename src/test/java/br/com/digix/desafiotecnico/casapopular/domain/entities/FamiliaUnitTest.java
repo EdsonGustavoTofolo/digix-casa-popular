@@ -31,4 +31,21 @@ class FamiliaUnitTest {
         assertThat(rendaTotal).isNotNull();
         assertThat(rendaTotal).isEqualTo(new BigDecimal("4600.00"));
     }
+
+    @Test
+    void test() {
+        final var joao = umaPessoa().nome("Joao").idade(20).build();
+        final var pedro = umaPessoa().nome("Pedro").idade(15).build();
+        final var paulo = umaPessoa().nome("Paulo").idade(25).build();
+        final var jose = umaPessoa().nome("Jose").idade(17).build();
+        final var mauro = umaPessoa().nome("Mauro").idade(18).build();
+
+        final var dependentes = List.of(joao, pedro, paulo, jose, mauro);
+
+        final var familia = umaFamilia().dependentes(dependentes).build();
+
+        final var quantidadeDeDependentesMenoresDe18anos = familia.getQuantidadeDeDependentesMenoresDe18anos();
+
+        assertThat(quantidadeDeDependentesMenoresDe18anos).isEqualTo(2L);
+    }
 }
