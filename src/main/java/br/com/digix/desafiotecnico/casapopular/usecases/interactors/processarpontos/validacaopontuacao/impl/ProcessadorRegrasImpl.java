@@ -2,7 +2,7 @@ package br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpo
 
 import br.com.digix.desafiotecnico.casapopular.domain.entities.Familia;
 import br.com.digix.desafiotecnico.casapopular.domain.entities.Pontuacao;
-import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.validacaopontuacao.ValidarPontuacao;
+import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.validacaopontuacao.ProcessadorRegras;
 import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.validacaopontuacao.regras.Regra;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ValidarPontuacaoImpl implements ValidarPontuacao {
+public class ProcessadorRegrasImpl implements ProcessadorRegras {
 
     private final List<Regra> regras;
 

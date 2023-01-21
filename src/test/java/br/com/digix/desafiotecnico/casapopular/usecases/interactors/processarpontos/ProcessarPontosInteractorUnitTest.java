@@ -1,7 +1,7 @@
 package br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos;
 
 import br.com.digix.desafiotecnico.casapopular.domain.entities.Pessoa;
-import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.validacaopontuacao.ValidarPontuacao;
+import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.validacaopontuacao.ProcessadorRegras;
 import br.com.digix.desafiotecnico.casapopular.usecases.ports.processarpontos.dtos.PessoaModel;
 import br.com.digix.desafiotecnico.casapopular.usecases.providers.FamiliaProvider;
 import org.junit.jupiter.api.DisplayName;
@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 class ProcessarPontosInteractorUnitTest {
 
     @Mock
-    private ValidarPontuacao validarPontuacao;
+    private ProcessadorRegras processadorRegras;
     @Mock
     private FamiliaProvider provider;
     @InjectMocks
@@ -35,7 +35,7 @@ class ProcessarPontosInteractorUnitTest {
         final var pontuacao = umaPontuacao().build();
 
         when(this.provider.getAll()).thenReturn(Collections.singletonList(umaFamilia().build()));
-        when(this.validarPontuacao.execute(anyList())).thenReturn(Collections.singletonList(pontuacao));
+        when(this.processadorRegras.execute(anyList())).thenReturn(Collections.singletonList(pontuacao));
 
         final var pontuacoes = this.processarPontos.execute();
 

@@ -5,6 +5,6 @@ import br.com.digix.desafiotecnico.casapopular.domain.entities.Pontuacao;
 
 import java.util.List;
 
-public interface ValidarPontuacao {
+public interface ProcessadorRegras {
     List<Pontuacao> execute(final List<Familia> familias);
 }
