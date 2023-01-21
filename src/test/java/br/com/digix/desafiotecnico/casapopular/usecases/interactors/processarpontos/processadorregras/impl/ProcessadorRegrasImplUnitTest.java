@@ -1,6 +1,7 @@
 package br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.processadorregras.impl;
 
 import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.processadorregras.regras.Regra;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -21,8 +22,9 @@ class ProcessadorRegrasImplUnitTest {
     @Mock
     private Regra regraPorQuantidadeDeDependentes;
 
+    @DisplayName("Deve processar as regras com sucesso")
     @Test
-    void execute() {
+    void shouldRunRulesSuccessfully() {
         final var familia1 = umaFamilia().id(1).build();
         final var familia2 = umaFamilia().id(2).build();
 
