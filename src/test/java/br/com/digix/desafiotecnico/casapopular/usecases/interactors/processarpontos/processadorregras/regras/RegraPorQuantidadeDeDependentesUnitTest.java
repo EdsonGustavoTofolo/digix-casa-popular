@@ -30,18 +30,22 @@ class RegraPorQuantidadeDeDependentesUnitTest {
         final var jose = umaPessoa().idade(20).build();
 
         final var familiaComUmDependente = umaFamilia()
+                .id(1)
                 .dependentes(List.of(joao))
                 .build();
 
         final var familiaComDoisDependentes = umaFamilia()
+                .id(2)
                 .dependentes(List.of(joao, paulo))
                 .build();
 
         final var familiaComDoisDependentesEumMaior = umaFamilia()
+                .id(3)
                 .dependentes(List.of(joao, paulo, jose))
                 .build();
 
         final var familiaComUmDependenteEumMaior = umaFamilia()
+                .id(4)
                 .dependentes(List.of(joao, jose))
                 .build();
 
@@ -65,14 +69,17 @@ class RegraPorQuantidadeDeDependentesUnitTest {
         final var joaquim = umaPessoa().idade(11).build();
 
         final var familiaComTresDependentesMenores = umaFamilia()
+                .id(1)
                 .dependentes(List.of(joao, paulo, john))
                 .build();
 
         final var familiaComTresDependentesMenoresEumMaior = umaFamilia()
+                .id(2)
                 .dependentes(List.of(john, joao, paulo, jose))
                 .build();
 
         final var familiaComQuatroDependentesMenores = umaFamilia()
+                .id(3)
                 .dependentes(List.of(john, joao, paulo, joaquim))
                 .build();
 
@@ -91,10 +98,12 @@ class RegraPorQuantidadeDeDependentesUnitTest {
         final var joao = umaPessoa().idade(20).build();
 
         final var familiaComUmDependenteMaior = umaFamilia()
+                .id(1)
                 .dependentes(List.of(joao))
                 .build();
 
         final var familiaComDoisDependentesMaiores = umaFamilia()
+                .id(2)
                 .dependentes(List.of(john, joao))
                 .build();
 
