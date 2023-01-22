@@ -23,7 +23,7 @@ class FamiliaUnitTest {
 
         final var familia = umaFamilia().dependentes(dependentes).build();
 
-        familia.getPai().ifPresent(pai -> pai.setRenda(new BigDecimal("500.00")));
+        familia.getPai().setRenda(new BigDecimal("500.00"));
         familia.getMae().setRenda(new BigDecimal("900.00"));
 
         final var rendaTotal = familia.getRendaTotal();

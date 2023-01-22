@@ -53,7 +53,7 @@ class AdicionarFamiliaImplUnitTest {
             this.assertPessoa(familiaModel.getDependentes().get(i), familia.getDependentes().get(i));
         }
 
-        this.assertPessoa(familiaModel.getPai().get(), familia.getPai().get());
+        this.assertPessoa(familiaModel.getPai(), familia.getPai());
         this.assertPessoa(familiaModel.getMae(), familia.getMae());
     }
 

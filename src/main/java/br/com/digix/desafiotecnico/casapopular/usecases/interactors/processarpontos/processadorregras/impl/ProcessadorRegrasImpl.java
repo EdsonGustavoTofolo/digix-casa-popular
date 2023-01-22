@@ -5,12 +5,14 @@ import br.com.digix.desafiotecnico.casapopular.domain.entities.Pontuacao;
 import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.processadorregras.ProcessadorRegras;
 import br.com.digix.desafiotecnico.casapopular.usecases.interactors.processarpontos.processadorregras.regras.Regra;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ProcessadorRegrasImpl implements ProcessadorRegras {
 
     private final List<Regra> regras;
@@ -21,6 +23,8 @@ public class ProcessadorRegrasImpl implements ProcessadorRegras {
     }
 
     private Pontuacao executarRegras(final Familia familia) {
+        log.info("Executando regras para familia {}.", familia.getId());
+
         final var pontuacaoTotal = this.regras.stream()
                 .map(regra -> regra.execute(familia))
                 .reduce(0, Integer::sum);

@@ -22,7 +22,7 @@ public final class PontuacaoConverter {
     }
 
     private static FamiliaResponse toFamiliaResponse(final FamiliaModel familiaModel) {
-        final var pai = familiaModel.getPai().map(PontuacaoConverter::toPessoaResponse).orElse(null);
+        final var pai = toPessoaResponse(familiaModel.getPai());
         final var mae = toPessoaResponse(familiaModel.getMae());
         final var dependentes = familiaModel.getDependentes().stream().map(PontuacaoConverter::toPessoaResponse).toList();
 

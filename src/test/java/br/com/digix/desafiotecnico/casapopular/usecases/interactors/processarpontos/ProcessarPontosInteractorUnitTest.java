@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Collections;
+import java.util.List;
 
 import static br.com.digix.desafiotecnico.casapopular.domain.entities.builders.FamiliaBuilder.umaFamilia;
 import static br.com.digix.desafiotecnico.casapopular.domain.entities.builders.PontuacaoBuilder.umaPontuacao;
@@ -32,25 +33,38 @@ class ProcessarPontosInteractorUnitTest {
     @DisplayName("Deve processar a pontuação com sucesso")
     @Test
     void shouldRunPointsSuccessfully() {
-        final var pontuacao = umaPontuacao().build();
+        final var pontuacao3 = umaPontuacao().familia(umaFamilia().id(1).build()).pontos(3).build();
+        final var pontuacao5 = umaPontuacao().familia(umaFamilia().id(2).build()).pontos(5).build();
+        final var pontuacao8 = umaPontuacao().familia(umaFamilia().id(3).build()).pontos(8).build();
+
+        final var expectedPontuacoes = List.of(pontuacao3, pontuacao5, pontuacao8);
 
         when(this.provider.getAll()).thenReturn(Collections.singletonList(umaFamilia().build()));
-        when(this.processadorRegras.execute(anyList())).thenReturn(Collections.singletonList(pontuacao));
+        when(this.processadorRegras.execute(anyList())).thenReturn(expectedPontuacoes);
 
         final var pontuacoes = this.processarPontos.execute();
 
         assertThat(pontuacoes).isNotNull();
-        assertThat(pontuacoes).asList().hasSize(1);
+        assertThat(pontuacoes).asList().hasSize(3);
 
-        pontuacoes.forEach(pontuacaoModel -> {
-            assertThat(pontuacaoModel.getPontos()).isEqualTo(pontuacao.getPontos());
-            assertThat(pontuacaoModel.getFamilia()).isNotNull();
+        assertThat(pontuacoes.get(0).getPontos()).isEqualTo(pontuacao8.getPontos());
+        assertThat(pontuacoes.get(1).getPontos()).isEqualTo(pontuacao5.getPontos());
+        assertThat(pontuacoes.get(2).getPontos()).isEqualTo(pontuacao3.getPontos());
 
-            this.assertPessoa(pontuacaoModel.getFamilia().getPai().get(), pontuacao.getFamilia().getPai().get());
-            this.assertPessoa(pontuacaoModel.getFamilia().getMae(), pontuacao.getFamilia().getMae());
+        pontuacoes.forEach(actualPontuacao -> {
+            final var expectedPontuacao = expectedPontuacoes.stream()
+                    .filter(pontuacao -> pontuacao.getFamilia().getId().equals(actualPontuacao.getFamilia().getId()))
+                    .findFirst().orElse(null);
 
-            for (int i = 0; i < pontuacaoModel.getFamilia().getDependentes().size(); i++) {
-                this.assertPessoa(pontuacaoModel.getFamilia().getDependentes().get(i), pontuacao.getFamilia().getDependentes().get(i));
+            assertThat(expectedPontuacao).isNotNull();
+            assertThat(actualPontuacao.getPontos()).isEqualTo(expectedPontuacao.getPontos());
+            assertThat(actualPontuacao.getFamilia()).isNotNull();
+
+            this.assertPessoa(actualPontuacao.getFamilia().getPai(), expectedPontuacao.getFamilia().getPai());
+            this.assertPessoa(actualPontuacao.getFamilia().getMae(), expectedPontuacao.getFamilia().getMae());
+
+            for (int i = 0; i < actualPontuacao.getFamilia().getDependentes().size(); i++) {
+                this.assertPessoa(actualPontuacao.getFamilia().getDependentes().get(i), expectedPontuacao.getFamilia().getDependentes().get(i));
             }
         });
     }

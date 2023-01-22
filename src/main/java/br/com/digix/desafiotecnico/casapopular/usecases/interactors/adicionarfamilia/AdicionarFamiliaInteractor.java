@@ -17,7 +17,14 @@ public class AdicionarFamiliaInteractor implements AdicionarFamiliaInputPort {
 
     @Override
     public Integer execute(final FamiliaModel familiaModel) {
+        log.info("Adicionando familia.");
+
         final var familia = FamiliaConverter.toDomain(familiaModel);
-        return this.familiaProvider.save(familia);
+
+        final var id = this.familiaProvider.save(familia);
+
+        log.info("Familia adicionada com sucesso.");
+
+        return id;
     }
 }

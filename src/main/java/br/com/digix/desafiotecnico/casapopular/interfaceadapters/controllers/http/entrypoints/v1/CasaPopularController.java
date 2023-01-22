@@ -48,11 +48,11 @@ public class CasaPopularController {
 
     @PostMapping(PROCESSAR_PATH)
     public ResponseEntity<List<PontuacaoResponse>> processarPontos() {
-        log.info("Recebida requisição para processar dados.");
+        log.info("Recebida requisição para processar pontos.");
 
         final var familiasPontuadas = this.processarPontos.execute();
 
-        log.info("Requisição de processar dados realizada com sucesso.");
+        log.info("Requisição de processar pontos realizada com sucesso.");
 
         return ResponseEntity.ok(familiasPontuadas);
     }

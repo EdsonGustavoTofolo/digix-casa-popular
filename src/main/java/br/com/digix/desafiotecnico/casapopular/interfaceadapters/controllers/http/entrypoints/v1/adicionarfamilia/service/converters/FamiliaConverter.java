@@ -13,21 +13,16 @@ import java.math.BigDecimal;
 public final class FamiliaConverter {
 
     public static FamiliaModel toModel(final FamiliaRequest request) {
-        final var pai = request.getPai()
-                .map(FamiliaConverter::toPessoaModel).orElse(null);
-
+        final var pai = toPessoaModel(request.getPai());
         final var mae = toPessoaModel(request.getMae());
-
         final var dependentes = request.getDependentes().stream()
                 .map(FamiliaConverter::toPessoaModel).toList();
 
-        final var familiaModel = FamiliaModel.builder()
+        return FamiliaModel.builder()
                 .pai(pai)
                 .mae(mae)
                 .dependentes(dependentes)
                 .build();
-
-        return familiaModel;
     }
 
     private static PessoaModel toPessoaModel(final PessoaRequest pessoaRequest) {

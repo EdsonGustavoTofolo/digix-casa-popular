@@ -53,7 +53,7 @@ class AdicionarFamiliaInteractorUnitTest {
             this.assertPessoa(familia.getDependentes().get(i), familiaModel.getDependentes().get(i));
         }
 
-        this.assertPessoa(familia.getPai().get(), familiaModel.getPai().get());
+        this.assertPessoa(familia.getPai(), familiaModel.getPai());
         this.assertPessoa(familia.getMae(), familiaModel.getMae());
     }
 

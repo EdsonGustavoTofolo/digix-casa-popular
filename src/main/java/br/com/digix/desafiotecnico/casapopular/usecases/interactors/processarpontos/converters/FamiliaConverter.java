@@ -15,7 +15,7 @@ public final class FamiliaConverter {
     public static FamiliaModel toModel(final Familia familia) {
         return FamiliaModel.builder()
                 .id(familia.getId())
-                .pai(familia.getPai().map(FamiliaConverter::toPessoaDomain).orElse(null))
+                .pai(toPessoaDomain(familia.getPai()))
                 .mae(toPessoaDomain(familia.getMae()))
                 .dependentes(familia.getDependentes().stream().map(FamiliaConverter::toPessoaDomain).toList())
                 .build();

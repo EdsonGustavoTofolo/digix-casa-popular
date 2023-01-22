@@ -44,7 +44,7 @@ class ProcessarPontosImplUnitTest {
             assertThat(actualPontuacao.getFamilia()).isNotNull();
             assertThat(actualPontuacao.getFamilia().getId()).isEqualTo(pontuacao.getFamilia().getId());
 
-            this.assertPessoa(actualPontuacao.getFamilia().getPai(), pontuacao.getFamilia().getPai().get());
+            this.assertPessoa(actualPontuacao.getFamilia().getPai(), pontuacao.getFamilia().getPai());
             this.assertPessoa(actualPontuacao.getFamilia().getMae(), pontuacao.getFamilia().getMae());
 
             assertThat(actualPontuacao.getFamilia().getDependentes()).isNotNull();

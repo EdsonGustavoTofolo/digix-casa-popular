@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.Value;
 
 import java.util.List;
-import java.util.Optional;
 
 @Data
 @Builder
@@ -14,8 +13,4 @@ public class FamiliaModel {
     PessoaModel pai;
     PessoaModel mae;
     List<PessoaModel> dependentes;
-
-    public Optional<PessoaModel> getPai() {
-        return Optional.ofNullable(this.pai);
-    }
 }

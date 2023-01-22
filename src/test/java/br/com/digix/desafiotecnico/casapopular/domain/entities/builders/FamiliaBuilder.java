@@ -23,6 +23,7 @@ public final class FamiliaBuilder {
 
         builder.request = Familia.builder();
         builder.request
+                .id(1)
                 .pai(pai)
                 .mae(mae)
                 .dependentes(List.of(dependente));

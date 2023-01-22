@@ -19,7 +19,7 @@ public class PessoaRequest {
     @NotNull
     Integer idade;
     @NotNull
-    @DecimalMin(value = "0.0", inclusive = false)
+    @DecimalMin(value = "0.0")
     @Digits(integer = 10, fraction = 2)
     BigDecimal renda;
 }

@@ -7,21 +7,17 @@ import lombok.Value;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
-import java.util.Optional;
 
 @Data
 @Builder
 @Value
 public class FamiliaRequest {
     @Valid
+    @NotNull
     PessoaRequest pai;
     @Valid
     @NotNull
     PessoaRequest mae;
     @NotNull
     List<@Valid PessoaRequest> dependentes;
-
-    public Optional<PessoaRequest> getPai() {
-        return Optional.ofNullable(this.pai);
-    }
 }

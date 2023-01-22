@@ -7,7 +7,6 @@ import lombok.EqualsAndHashCode;
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 @Data
 @Builder
@@ -23,12 +22,8 @@ public class Familia {
         return Collections.unmodifiableList(this.dependentes);
     }
 
-    public Optional<Pessoa> getPai() {
-        return Optional.ofNullable(this.pai);
-    }
-
     public BigDecimal getRendaTotal() {
-        final var rendaPai = Optional.ofNullable(this.pai).map(Pessoa::getRenda).orElse(BigDecimal.ZERO);
+        final var rendaPai = this.pai.getRenda();
         final var rendaMae = this.mae.getRenda();
         final var rendaTotalDependentes = this.dependentes.stream().map(Pessoa::getRenda).reduce(BigDecimal.ZERO, BigDecimal::add);
 
