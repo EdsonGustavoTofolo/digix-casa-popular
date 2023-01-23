@@ -24,7 +24,7 @@ Cada package corresponde a uma camada, conforme pode ser visto no link: [Clean A
 Ao rodar o projeto são disponibilizados dois *endpoints*:
 
 #### Adicionar famílias
-<p>POST http://localhost:8080/api/v1/casa-popular/familias</p>
+POST http://localhost:8080/api/v1/casa-popular/familias
 <p>Request body:</p>
 
 ```json
